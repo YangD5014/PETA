@@ -16,7 +16,7 @@
 		<scroll-view class="main-content" scroll-y>
 			<view class="pet-card-section">
 				<view class="pet-card">
-					<image class="pet-card-bg" src="/static/images/pet_card_background.jpg" mode="aspectFill"></image>
+					<image class="pet-card-bg" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_card_background.jpg" mode="aspectFill"></image>
 					<view class="pet-card-gradient"></view>
 					<view class="pet-info">
 						<view class="pet-name-row">
@@ -138,7 +138,7 @@
 			<view class="qr-card-container" @click.stop>
 				<view class="qr-card">
 					<view class="qr-card-bg-section">
-						<image class="qr-card-bg" src="/static/images/pet_card_background.jpg" mode="aspectFill"></image>
+						<image class="qr-card-bg" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_card_background.jpg" mode="aspectFill"></image>
 						<view class="qr-card-gradient"></view>
 						<button class="close-btn" @click="closeQrCard">
 							<text class="iconfont icon-close">&#xe5cd;</text>

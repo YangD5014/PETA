@@ -21,7 +21,7 @@
 					<view class="stories-list">
 						<view class="story-item add-story" @click="addStory">
 							<view class="story-avatar-wrap">
-								<image class="story-avatar" src="/static/images/pet_mypet.jpg" mode="aspectFill"></image>
+								<image class="story-avatar" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_mypet.jpg" mode="aspectFill"></image>
 								<view class="add-icon">
 									<text class="iconfont">&#xe145;</text>
 								</view>
@@ -138,17 +138,17 @@ export default {
 	data() {
 		return {
 			stories: [
-				{ name: 'Max', avatar: '/static/images/pet_max.jpg', hasStory: true, viewed: false },
-				{ name: 'Bella', avatar: '/static/images/pet_bella.jpg', hasStory: true, viewed: false },
-				{ name: 'Charlie', avatar: '/static/images/pet_charlie.jpg', hasStory: true, viewed: false },
-				{ name: 'Coco', avatar: '/static/images/pet_coco.jpg', hasStory: false, viewed: true }
+				{ name: 'Max', avatar: 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_max.jpg', hasStory: true, viewed: false },
+				{ name: 'Bella', avatar: 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_bella.jpg', hasStory: true, viewed: false },
+				{ name: 'Charlie', avatar: 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_charlie.jpg', hasStory: true, viewed: false },
+				{ name: 'Coco', avatar: 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_coco.jpg', hasStory: false, viewed: true }
 			],
 			posts: [
 				{
 					authorName: '莎拉 & 露娜',
-					authorAvatar: '/static/images/owner_sarah.jpg',
+					authorAvatar: 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/owner_sarah.jpg',
 					location: '旧金山，加州',
-					image: '/static/images/pet_luna_playing.jpg',
+					image: 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_luna_playing.jpg',
 					activity: {
 						type: 'running',
 						icon: '\ue566',
@@ -158,16 +158,16 @@ export default {
 					},
 					isLiked: true,
 					likes: 2453,
-					likerAvatars: ['/static/images/liker1.jpg', '/static/images/liker2.jpg', '/static/images/liker3.jpg'],
+					likerAvatars: ['https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/liker1.jpg', 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/liker2.jpg', 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/liker3.jpg'],
 					content: '海滩晨跑绝对是最棒的！🌊 露娜还有很多精力。下次谁想加入我们？🐕',
 					comments: 128,
 					time: '2小时前'
 				},
 				{
 					authorName: '迈克 & 洛基',
-					authorAvatar: '/static/images/owner_mike.jpg',
+					authorAvatar: 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/owner_mike.jpg',
 					location: '中央公园，纽约',
-					image: '/static/images/pet_rocky_sleeping.jpg',
+					image: 'https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/pet_rocky_sleeping.jpg',
 					activity: {
 						type: 'sleeping',
 						icon: '\ueb41',
