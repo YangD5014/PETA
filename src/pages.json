@@ -1,0 +1,76 @@
+{
+  "pages": [
+    {
+      "path": "pages/pet-health/pet-health",
+      "style": {
+        "navigationBarTitleText": "宠物健康",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/pet-card/pet-card",
+      "style": {
+        "navigationBarTitleText": "宠物名片",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/pet-social/pet-social",
+      "style": {
+        "navigationBarTitleText": "宠友圈",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/pet-map/pet-map",
+      "style": {
+        "navigationBarTitleText": "宠物社交地图",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/pet-device-detail-0/pet-device-detail-0",
+      "style": {
+        "navigationBarTitleText": "宠物设备详情",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/pet-device-detail-1/pet-device-detail-1",
+      "style": {
+        "navigationBarTitleText": "宠物行为详情",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/test-image/test-image",
+      "style": {
+        "navigationBarTitleText": "图片测试"
+      }
+    },
+    {
+      "path": "pages/index/index"
+    }
+  ],
+  "subPackages": [
+    {
+      "name": "sub-pack-2",
+      "root": "sub-pack-2",
+      "pages": [
+        {
+          "path": "particles/index"
+        },
+        {
+          "path": "gltf-loader/index"
+        }
+      ]
+    }
+  ],
+  "globalStyle": {
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "uniIdRouter": {}
+}
