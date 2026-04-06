@@ -14,6 +14,20 @@
       }
     },
     {
+      "path": "pages/login-form/login-form",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/signup/signup",
+      "style": {
+        "navigationBarTitleText": "注册",
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/pet-health/pet-health",
       "style": {
         "navigationBarTitleText": "宠物健康",
