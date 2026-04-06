@@ -30,7 +30,7 @@
 			</view>
 
 			<view class="btn btn-black" @click="handleWechatLogin">
-				<text class="iconfont icon-wechat">&#xe611;</text>
+				<image class="wechat-icon" :src="cdnBase + '/icons/微信.svg'" mode="aspectFit"></image>
 				<text class="btn-text-black">Sign in with WeChat</text>
 			</view>
 		</view>
@@ -201,9 +201,10 @@ export default {
 	color: #ffffff;
 }
 
-.icon-wechat {
-	font-size: 36rpx;
-	color: #ffffff;
+.wechat-icon {
+	width: 36rpx;
+	height: 36rpx;
+	filter: brightness(0) invert(1);
 }
 
 .button-container {
