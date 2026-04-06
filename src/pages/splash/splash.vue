@@ -1,10 +1,8 @@
 <template>
 	<view class="splash-container" @touchstart="onTouchStart" @touchend="onTouchEnd" @tap="onClick">
-		<view class="fixed inset-0 z-0 h-full w-full">
+		<view class="video-container">
 			<video
-				:id="`bg-${currentBg}`"
-				class="absolute inset-0 h-full w-full object-cover brightness-50 transition-opacity duration-500"
-				:class="videoOpacity ? 'opacity-100' : 'opacity-0'"
+				class="video-bg"
 				:src="currentVideoSrc"
 				:autoplay="true"
 				:loop="true"
@@ -18,8 +16,10 @@
 				:enable-play-gesture="false"
 				@ended="onVideoEnded"
 				@error="onVideoError"
+				@load="onVideoLoaded"
+				@progress="onVideoProgress"
 			></video>
-			<view class="absolute inset-0 bg-gradient-to-b from-surface/40 via-transparent to-surface/90"></view>
+			<view class="video-overlay"></view>
 		</view>
 
 		<view class="fixed top-2 left-0 w-full px-4 z-50 flex gap-1">
@@ -60,13 +60,12 @@
 		<footer class="fixed bottom-0 left-0 w-full z-20 pb-8 px-6 space-y-8 bg-gradient-to-t from-surface to-transparent">
 			<view class="max-w-md mx-auto w-full">
 				<button
-					id="start-button"
-					class="w-full bg-primary text-on-primary font-body font-semibold py-4 px-6 rounded-full flex items-center justify-center gap-3 active:scale-[0.98] transition-transform duration-150 transition-opacity duration-1000"
-					:class="[showStartButton ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none']"
+					class="start-button"
+					:disabled="false"
 					@tap="handleStart"
 				>
-					<text class="material-symbols-outlined text-2xl">arrow_forward</text>
-					<text class="text-base tracking-tight">Start</text>
+					<text class="start-icon">arrow_forward</text>
+					<text class="start-text">Start</text>
 				</button>
 			</view>
 
@@ -104,8 +103,7 @@ const currentTitle = ref('');
 const currentSubtitle = ref('');
 const titleOpacity = ref(false);
 const subtitleOpacity = ref(false);
-const showStartButton = ref(false);
-const videoOpacity = ref(true);
+const videoLoaded = ref(false);
 
 const videoList = [
 	'/static/videos/压缩后_播片-1.mp4',
@@ -138,20 +136,17 @@ function updateContent(index: number) {
 function switchToNextBg() {
 	if (currentBg.value >= totalBgs - 1) return;
 
-	videoOpacity.value = false;
+	currentBg.value = currentBg.value + 1;
+	updateContent(currentBg.value);
+}
 
-	setTimeout(() => {
-		currentBg.value = currentBg.value + 1;
-		updateContent(currentBg.value);
+function onVideoLoaded() {
+	videoLoaded.value = true;
+	console.log('Video loaded');
+}
 
-		setTimeout(() => {
-			videoOpacity.value = true;
-		}, 50);
-
-		if (currentBg.value === totalBgs - 1) {
-			showStartButton.value = true;
-		}
-	}, 500);
+function onVideoProgress() {
+	console.log('Video loading...');
 }
 
 function onVideoEnded() {
@@ -205,6 +200,60 @@ function onClick(e: any) {
 	width: 100%;
 	min-height: 100vh;
 	background-color: #131313;
+}
+
+.video-container {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+.video-bg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.video-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, rgba(19, 19, 19, 0.4) 0%, transparent 30%, rgba(19, 19, 19, 0.9) 100%);
+}
+
+.start-button {
+	width: 100%;
+	height: 96rpx;
+	background-color: #ffffff;
+	border-radius: 48rpx;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	gap: 16rpx;
+}
+
+.start-button:active {
+	transform: scale(0.98);
+}
+
+.start-icon {
+	font-family: 'Material Symbols Outlined';
+	font-size: 40rpx;
+	color: #1a1c1c;
+}
+
+.start-text {
+	font-family: 'Inter', sans-serif;
+	font-size: 32rpx;
+	font-weight: 600;
+	color: #1a1c1c;
+	letter-spacing: -0.025em;
 }
 
 .material-symbols-outlined {
