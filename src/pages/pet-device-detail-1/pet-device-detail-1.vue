@@ -1,5 +1,6 @@
 <template>
 	<view class="pet-device-container">
+		<view class="safe-area-top"></view>
 		<view class="content-wrapper">
 			<view class="header">
 				<view class="back-btn" @click="goBack">
@@ -130,7 +131,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import PlatformCanvas from "@/components/PlatformCanvas.vue"
 
-const dogModelUrl = 'https://cdn.jsdelivr.net/gh/YangD5014/jsdliver_cdn@main/dog-model.glb'
+const dogModelUrl = 'https://cdn.jsdelivr.net/gh/YangD5014/PETA@main/src/static/dog-model.glb'
 
 const isLoading = ref(true)
 const loadingProgress = ref(0)

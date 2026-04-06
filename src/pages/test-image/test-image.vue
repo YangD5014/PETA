@@ -1,7 +1,8 @@
 <template>
 	<view class="test-container">
+		<view class="safe-area-top"></view>
 		<text class="title">图片测试页面</text>
-		<image class="test-image" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/health_map.jpg" mode="aspectFill"></image>
+		<image class="test-image" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA@main/src/static/images/health_map.jpg" mode="aspectFill"></image>
 	</view>
 </template>
 

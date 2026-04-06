@@ -22,7 +22,7 @@ onHide(() => {
   font-style: normal;
   font-weight: 100 700;
   font-display: swap;
-  src: url('https://cdn.jsdelivr.net/npm/@fontsource/material-symbols-outlined@5.0.17/files/material-symbols-outlined-wght-normal.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/gh/YangD5014/PETA@main/src/static/fonts/material-symbols-outlined.woff2') format('woff2');
 }
 
 @font-face {
@@ -30,9 +30,26 @@ onHide(() => {
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('https://cdn.jsdelivr.net/npm/@fontsource/manrope@5.0.17/files/manrope-latin-400-normal.woff2') format('woff2');
+  src: url('https://cdn.jsdelivr.net/gh/YangD5014/PETA@main/src/static/fonts/manrope-regular.woff2') format('woff2');
 }
 /* #endif */
+
+/* 全局安全区域样式 */
+page {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-top {
+  width: 100%;
+  height: constant(safe-area-inset-top);
+  height: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
 
 .iconfont {
   font-family: 'Material Symbols Outlined';
@@ -57,5 +74,7 @@ onHide(() => {
     left: 0;
     width: 100%;
     height: 100%;
+    padding-top: constant(safe-area-inset-top);
+    padding-top: env(safe-area-inset-top);
 }
 </style>

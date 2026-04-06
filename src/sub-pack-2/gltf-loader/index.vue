@@ -60,6 +60,10 @@ function useCanvas( { canvas, useFrame,recomputeSize }) {
     loader.setKTX2Loader(ktx2Loader);
     loader.setMeshoptDecoder(MeshoptDecoder);
     loader.load('models/gltf/coffeemat.glb', function (gltf) {
+      // coffeemat.glb was produced from the source scene using gltfpack:
+      // gltfpack -i coffeemat/scene.gltf -o coffeemat.glb -cc -tc
+      // The resulting model uses EXT_meshopt_compression (for geometry) and KHR_texture_basisu (for texture compression using ETC1S/BasisLZ)
+
       gltf.scene.position.y = 8;
 
       scene.add(gltf.scene);
@@ -68,15 +72,20 @@ function useCanvas( { canvas, useFrame,recomputeSize }) {
     });
 
     const controls = new OrbitControls(camera, renderer.domElement);
-    controls.addEventListener('change', render);
+    controls.addEventListener('change', render); // use if there is no animation loop
     controls.minDistance = 400;
     controls.maxDistance = 1000;
     controls.target.set(10, 90, -16);
     controls.update();
 
+
+
+    //需要手动触发
     canvas.addEventListener('resize', onWindowResize);
   }
 
+
+  //手动触发resize
   function manualTriggerResize() {
     recomputeSize().then(()=>{
       canvas.dispatchEvent(new Event('resize'));
@@ -92,12 +101,16 @@ function useCanvas( { canvas, useFrame,recomputeSize }) {
     render();
   }
 
+  //
+
   function render() {
     renderer.render(scene, camera);
   }
 }
 
 </script>
+
+
 
 <style scoped>
 

@@ -48,7 +48,8 @@
             "urlCheck" : false,
             "es6": true
         },
-        "usingComponents" : true
+        "usingComponents" : true,
+        "navigationBarCoverView": true
     },
     "mp-alipay" : {
         "usingComponents" : true

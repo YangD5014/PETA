@@ -1,6 +1,19 @@
 {
   "pages": [
     {
+      "path": "pages/splash/splash",
+      "style": {
+        "navigationStyle": "custom"
+      }
+    },
+    {
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      }
+    },
+    {
       "path": "pages/pet-health/pet-health",
       "style": {
         "navigationBarTitleText": "宠物健康",

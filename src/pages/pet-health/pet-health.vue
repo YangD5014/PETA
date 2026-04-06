@@ -1,5 +1,6 @@
 <template>
 	<view class="pet-health-container">
+		<view class="safe-area-top"></view>
 		<view class="header">
 			<view class="menu-btn" @click="openMenu">
 				<text class="iconfont icon-menu">&#xe5d2;</text>
@@ -157,7 +158,7 @@
 				</view>
 
 				<view class="location-card" @click="viewLocation">
-					<image class="location-bg" src="/static/images/health_map.jpg" mode="aspectFill"></image>
+					<image class="location-bg" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA@main/src/static/images/health_map.jpg" mode="aspectFill"></image>
 					<view class="location-overlay"></view>
 					<view class="location-content">
 						<view class="location-badge">
@@ -207,7 +208,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 import PlatformCanvas from "@/components/PlatformCanvas.vue"
 
-const dogModelUrl = 'https://cdn.jsdelivr.net/gh/YangD5014/jsdliver_cdn@main/dog-model.glb'
+const dogModelUrl = 'https://cdn.jsdelivr.net/gh/YangD5014/PETA@main/src/static/dog-model.glb'
 
 const isLoading = ref(true)
 const loadingProgress = ref(0)

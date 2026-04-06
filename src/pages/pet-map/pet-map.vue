@@ -1,7 +1,8 @@
 <template>
 	<view class="pet-map-container">
+		<view class="safe-area-top"></view>
 		<view class="map-section">
-			<image class="map-background" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/map_background.jpg" mode="aspectFill"></image>
+			<image class="map-background" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA@main/src/static/images/map_background.jpg" mode="aspectFill"></image>
 			<view class="map-overlay"></view>
 			
 			<view class="map-header">
@@ -16,7 +17,7 @@
 
 			<view class="my-location-marker">
 				<view class="marker-avatar-wrap">
-					<image class="marker-avatar" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA%20HK@main/src/static/images/map_overlay.jpg" mode="aspectFill"></image>
+					<image class="marker-avatar" src="https://cdn.jsdelivr.net/gh/YangD5014/PETA@main/src/static/images/map_overlay.jpg" mode="aspectFill"></image>
 				</view>
 				<view class="location-icon">
 					<text class="iconfont">&#xe55c;</text>

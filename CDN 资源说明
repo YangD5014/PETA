@@ -1,0 +1,10 @@
+1. 由于我将整个项目都上传到了 GITHUB 上
+2.地址是：https://github.com/YangD5014/PETA/tree/main
+3.而微信小程序相关的要求，希望把静态资源全部放在 CDN 链接中,
+4.因此你要帮我把 static 文件夹下的所有资源 在页面中全部换成 CDN 链接
+5.例如：> https://gcore.jsdelivr.net/gh/YangD5014/PETA@main/src/static/dog-model
+6.3D模型 原本地址是：static/dog-model.glb 换成-.glb
+7.字体文件 原本地址是: static/fonts/material-symbols-outlined.woff2 换成-> https://gcore.jsdelivr.net/gh/YangD5014/PETA@main/src/static/fonts/material-symbols-outlined.woff2
+
+---
+注意：由于 cdn.jsdelivr.net 在中国大陆访问不稳定，已统一更换为 gcore.jsdelivr.net

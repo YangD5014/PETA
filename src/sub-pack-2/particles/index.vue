@@ -10,6 +10,7 @@
     </view>
 </template>
 <script setup lang="ts">
+//demo from: https://github.com/edankwan/The-Spirit
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { settings, ray as _ray } from './core/settings.js';
@@ -51,6 +52,7 @@ function useCanvas({ canvas, useFrame, eventHandler }: UseCanvasResult){
   enableFPS.value = !!supportedFloatType;
 
   renderer.setClearColor(settings.bgColor);
+  // renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   renderer.shadowMap.enabled = true;
 
   const scene = new THREE.Scene();
@@ -84,6 +86,8 @@ function useCanvas({ canvas, useFrame, eventHandler }: UseCanvasResult){
   control.maxDistance = 1000;
   control.minPolarAngle = 0.3;
   control.maxPolarAngle = Math.PI / 2 - 0.1;
+  // control.enablePan = false;
+  // control.enabled = false;
   control.update();
 
   let initAnimation = 0;
@@ -120,6 +124,7 @@ function useCanvas({ canvas, useFrame, eventHandler }: UseCanvasResult){
         : THREE.MathUtils.lerp(1000, 450, ease.basic.Cubic.Out(initAnimation));
     control.update();
 
+    // update mouse3d
     camera.updateMatrixWorld();
     _ray.origin.setFromMatrixPosition(camera.matrixWorld);
     _ray.direction
@@ -136,6 +141,11 @@ function useCanvas({ canvas, useFrame, eventHandler }: UseCanvasResult){
       particles.update(dt, simulator);
     }
 
+    // fxaa.enabled = !!settings.fxaa;
+    // motionBlur.enabled = !!settings.motionBlur;
+    // bloom.enabled = !!settings.bloom;
+
+    // postprocessing.render(dt, newTime);
     renderer.render(scene, camera);
     lights.update(renderer);
   }
@@ -144,6 +154,8 @@ function useCanvas({ canvas, useFrame, eventHandler }: UseCanvasResult){
     camera.aspect = CANVAS_WIDTH / CANVAS_HEIGHT;
     camera.updateProjectionMatrix();
     renderer.setSize(CANVAS_WIDTH, CANVAS_HEIGHT, false);
+
+    // postprocessing.resize(_width, _height);
   }
 
   function onMouseMove(evt: MouseEvent) {
@@ -157,6 +169,7 @@ function useCanvas({ canvas, useFrame, eventHandler }: UseCanvasResult){
   // #ifdef MP-WEIXIN
   let firstMotion: [number, number] | undefined;
   const throttle = 40;
+  //ios 返回数据方向相反
   const globalScale = isIOS ? -1 : 1;
   wx.onDeviceMotionChange((data) => {
     if (!firstMotion) {
@@ -204,23 +217,38 @@ function useCanvas({ canvas, useFrame, eventHandler }: UseCanvasResult){
       }
     });
   });
+
+
 }
 
+
+
+// function onKeyUp(evt) {
+//   if (evt.keyCode === 32) {
+//     settings.speed = settings.speed === 0 ? 1 : 0;
+//     settings.dieSpeed = settings.dieSpeed === 0 ? 0.015 : 0;
+//   }
+// }
+
 function getRainbowColor(percentage: number) {
+  // 确保阈值在 0 到 100 之间
   percentage = Math.max(0, Math.min(100, percentage));
 
+  // 将阈值映射到 [0, 1] 范围
   const t = percentage / 100;
 
+  // 彩虹颜色的 RGB 值
   const colors = [
-    { r: 255, g: 0, b: 0 },
-    { r: 255, g: 127, b: 0 },
-    { r: 255, g: 255, b: 0 },
-    { r: 0, g: 255, b: 0 },
-    { r: 0, g: 255, b: 255 },
-    { r: 0, g: 0, b: 255 },
-    { r: 148, g: 0, b: 211 }
+    { r: 255, g: 0, b: 0 }, // 红色
+    { r: 255, g: 127, b: 0 }, // 橙色
+    { r: 255, g: 255, b: 0 }, // 黄色
+    { r: 0, g: 255, b: 0 }, // 绿色
+    { r: 0, g: 255, b: 255 }, // 青色
+    { r: 0, g: 0, b: 255 }, // 蓝色
+    { r: 148, g: 0, b: 211 } // 紫色
   ];
 
+  // 计算每一段颜色的过渡
   const segmentCount = colors.length - 1;
   const segment = t * segmentCount;
   const segmentIndex = Math.floor(segment);
